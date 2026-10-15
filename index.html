@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0e2623; --bg-2:#133530; --line:#2d4f49; --cream:#f4eee0; --cream-2:#cfc8b6;
+  --bg:#0e2623; --bg-2:#133530; --line:#2d4f49; --edge:#5f8a83; --cream:#f4eee0; --cream-2:#cfc8b6;
   --muted:#8fa8a2; --gold:#c9a45c; --rust:#a8432a; --rust-d:#8c351f;
   --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'DM Mono',ui-monospace,monospace;
 }
@@ -29,11 +29,11 @@ h1 i{color:var(--gold)}
 section{margin-top:44px}
 h2{font:400 1.7rem var(--serif);display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
 h2 i{color:var(--gold);font-size:1.2rem}
-.lbl{display:block;font:400 .66rem var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:22px 0 10px}
+.lbl{display:block;font:400 .72rem var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:22px 0 10px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{position:relative}
 .chip input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0}
-.chip span{display:block;padding:9px 16px;border:1px solid var(--line);border-radius:3px;font:500 .8rem var(--sans);color:var(--cream-2);transition:.15s}
+.chip span{display:flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid var(--edge);border-radius:3px;font:500 .8rem var(--sans);color:var(--cream-2);transition:.15s}
 .chip:hover span{border-color:var(--muted);color:var(--cream)}
 .chip input:checked+span{background:var(--cream);color:var(--bg);border-color:var(--cream)}
 .chip input:focus-visible+span,.day input:focus-visible+span{outline:2px solid var(--gold);outline-offset:3px}
@@ -43,17 +43,17 @@ h2 i{color:var(--gold);font-size:1.2rem}
 .days::-webkit-scrollbar{display:none}
 .day{position:relative;flex:0 0 72px;scroll-snap-align:start}
 .day input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0}
-.day span{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 0 9px;border:1px solid var(--line);border-radius:3px;transition:.15s}
-.day small{font:400 .6rem var(--mono);letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.day span{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 0 9px;border:1px solid var(--edge);border-radius:3px;transition:.15s}
+.day small{font:400 .68rem var(--mono);letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
 .day b{font:400 1.7rem/1.1 var(--serif)}
 .day:hover span{border-color:var(--muted)}
 .day input:checked+span{background:var(--cream);border-color:var(--cream);color:var(--bg)}
 .day input:checked+span small{color:#5b6e69}
-.next{position:absolute;right:-6px;top:38px;width:36px;height:36px;border-radius:50%;border:1px solid var(--muted);background:var(--bg-2);color:var(--cream);cursor:pointer;font-size:1rem}
+.next{position:absolute;right:-8px;top:34px;width:44px;height:44px;border-radius:50%;border:1px solid var(--muted);background:var(--bg-2);color:var(--cream);cursor:pointer;font-size:1rem}
 .next:hover{background:var(--cream);color:var(--bg)}
 @media(max-width:640px){.next{display:none}}
 
-.date{font:400 .66rem var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.date{font:400 .72rem var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .list{display:grid;gap:12px}
 .slot{display:grid;grid-template-columns:110px 1fr auto;gap:20px;align-items:center;background:var(--cream);color:var(--bg);padding:18px 22px;border-radius:3px;transition:transform .15s}
 .slot:hover{transform:translateX(3px)}
@@ -64,7 +64,7 @@ h2 i{color:var(--gold);font-size:1.2rem}
 .meta b{font-weight:600;color:var(--bg)}
 .meta a{color:inherit;text-underline-offset:3px}
 .low{color:var(--rust);font-weight:600}
-.book{background:var(--rust);color:var(--cream);border:0;border-radius:3px;padding:13px 22px;font:600 .78rem var(--sans);letter-spacing:.04em;cursor:pointer;transition:.15s}
+.book{background:var(--rust);color:var(--cream);border:0;border-radius:3px;min-height:44px;padding:13px 22px;font:600 .78rem var(--sans);letter-spacing:.04em;cursor:pointer;transition:.15s}
 .book:hover{background:var(--rust-d)}
 .book:focus-visible{outline:2px solid var(--bg);outline-offset:3px}
 .empty{border:1px dashed var(--line);border-radius:3px;padding:36px;text-align:center;color:var(--muted)}
@@ -80,7 +80,9 @@ dialog .sub{font-size:.85rem;color:#44574f;margin:4px 0 18px}
 .f input:focus{outline:2px solid var(--rust);outline-offset:1px}
 .row{display:flex;gap:10px;margin-top:18px}
 .row .book{flex:1}
-.ghost{background:none;border:1px solid #c9c1ad;color:var(--bg);border-radius:3px;padding:13px 18px;font:500 .78rem var(--sans);cursor:pointer}
+.ghost:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
+.err{color:var(--rust);font-size:.8rem;font-weight:500;margin:6px 0 0}
+.ghost{min-height:44px;background:none;border:1px solid #c9c1ad;color:var(--bg);border-radius:3px;padding:13px 18px;font:500 .78rem var(--sans);cursor:pointer}
 .ok{text-align:center;padding:8px 0}
 .ok h3{margin-bottom:8px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -90,7 +92,7 @@ dialog .sub{font-size:.85rem;color:#44574f;margin:4px 0 18px}
 <div class="wrap">
   <header><div class="logo">Fuel <i>&amp;</i> Flow</div><a href="#">Local classes</a></header>
 
-  <div class="hero">
+  <main><div class="hero">
     <p class="kicker">Nassau · Local rates</p>
     <h1>Find your <i>flow.</i> Book your spot.</h1>
     <p>Pilates, yoga, barre and more at two spots in Nassau. Pick a class, a day and a time.</p>
@@ -118,13 +120,14 @@ dialog .sub{font-size:.85rem;color:#44574f;margin:4px 0 18px}
     <p class="date" id="dateLbl"></p>
     <div class="list" id="list" aria-live="polite"></div>
   </section>
+</main>
 </div>
 
 <dialog id="dlg"><form method="dialog" id="bf" novalidate>
   <div id="bform">
     <h3 id="bt"></h3><p class="sub" id="bs"></p>
-    <div class="f"><label for="bn">Full name</label><input id="bn" required autocomplete="name"></div>
-    <div class="f"><label for="be">Email</label><input id="be" type="email" required autocomplete="email"></div>
+    <div class="f"><label for="bn">Full name</label><input id="bn" required autocomplete="name" aria-describedby="en"><p class="err" id="en" role="alert" hidden>Please enter your name.</p></div>
+    <div class="f"><label for="be">Email</label><input id="be" type="email" required autocomplete="email" aria-describedby="ee"><p class="err" id="ee" role="alert" hidden>Please enter a valid email address.</p></div>
     <div class="f"><label for="bp">Phone / WhatsApp</label><input id="bp" type="tel" autocomplete="tel"></div>
     <div class="row"><button type="button" class="ghost" id="cx">Cancel</button><button type="submit" class="book">Confirm booking</button></div>
   </div>
@@ -153,7 +156,7 @@ chips('fLoc','loc',['All locations',...Object.keys(LOCS)]);
 chips('fWhen','when',['Any time','Morning','Afternoon','Evening']);
 
 const days=[...Array(12)].map((_,i)=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+i);return d});
-$('days').innerHTML=days.map((d,i)=>`<label class="day"><input type="radio" name="day" value="${i}"${i?'':' checked'}><span><small>${d.toLocaleDateString('en-US',{weekday:'short'})}</small><b>${d.getDate()}</b><small>${d.toLocaleDateString('en-US',{month:'short'})}</small></span></label>`).join('');
+$('days').innerHTML=days.map((d,i)=>`<label class="day"><input type="radio" name="day" value="${i}" aria-label="${d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}"${i?'':' checked'}><span><small>${d.toLocaleDateString('en-US',{weekday:'short'})}</small><b>${d.getDate()}</b><small>${d.toLocaleDateString('en-US',{month:'short'})}</small></span></label>`).join('');
 
 const spots=(i,t)=>2+((i*7+t.length*3+parseInt(t))%14);
 function render(){
@@ -166,7 +169,7 @@ function render(){
     return `<article class="slot"><div class="time">${h}<small>${m}</small></div>
     <div><h3>${r.c}</h3><p class="meta"><span class="${r.n<5?'low':''}">${r.n} spots open</span> · ${MINS[r.c]} minutes · $${PRICE[r.c]}</p>
     <p class="meta"><b>${r.l}</b> · ${LOCS[r.l]} · <a href="https://maps.google.com/?q=${encodeURIComponent(LOCS[r.l])}" target="_blank" rel="noopener">Directions</a></p></div>
-    <button class="book" data-i="${i}">Book this class</button></article>`}).join('')
+    <button class="book" data-i="${i}" aria-label="Book ${r.c}, ${r.t}, ${r.l}">Book this class</button></article>`}).join('')
     :`<div class="empty">No classes match. Try another day or clear a filter.</div>`;
   render.rows=rows;
 }
@@ -180,12 +183,14 @@ $('list').addEventListener('click',e=>{
   cur=render.rows[+b.dataset.i];
   $('bt').textContent=cur.c;
   $('bs').textContent=`${days[st.day].toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'})} · ${cur.t} · ${cur.l} · $${PRICE[cur.c]}`;
-  $('bform').hidden=false;$('bok').hidden=true;$('dlg').showModal();
+  $('bform').hidden=false;$('bok').hidden=true;$('en').hidden=$('ee').hidden=true;$('dlg').showModal();
 });
 $('cx').onclick=$('cl').onclick=()=>$('dlg').close();
 $('bf').addEventListener('submit',e=>{
   e.preventDefault();
-  if(!$('bn').value.trim()||!$('be').validity.valid||!$('be').value){($('bn').value.trim()?$('be'):$('bn')).focus();return}
+  const nOk=!!$('bn').value.trim(),eOk=!!$('be').value&&$('be').validity.valid;
+  $('en').hidden=nOk;$('ee').hidden=eOk;$('bn').setAttribute('aria-invalid',!nOk);$('be').setAttribute('aria-invalid',!eOk);
+  if(!nOk||!eOk){(nOk?$('be'):$('bn')).focus();return}
   $('bform').hidden=true;$('bok').hidden=false;
   $('bm').textContent=`${cur.c}, ${cur.t}. A confirmation is on its way to ${$('be').value}.`;
 });
