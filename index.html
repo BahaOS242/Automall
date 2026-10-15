@@ -3,165 +3,193 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Book a Class · Fuel &amp; Flow Bahamas</title>
+<title>Book a Class · Fuel &amp; Flow</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0d2b2e; --ink-2:#3d5a5d; --sand:#f6f1e7; --card:#fffdf8; --line:#e3dbc9;
-  --sea:#0f6b6f; --sea-d:#0a4f52; --coral:#e8603c; --focus:#e8603c;
-  --r:16px; --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
-}
-@media (prefers-color-scheme:dark){
-  :root{--ink:#f2efe6; --ink-2:#b4c4c3; --sand:#08201f; --card:#0e302f; --line:#1f4745; --sea:#4fc2c0; --sea-d:#8be0de; --coral:#ff8a63}
+  --bg:#0e2623; --bg-2:#133530; --line:#2d4f49; --cream:#f4eee0; --cream-2:#cfc8b6;
+  --muted:#8fa8a2; --gold:#c9a45c; --rust:#a8432a; --rust-d:#8c351f;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'DM Mono',ui-monospace,monospace;
 }
 *{box-sizing:border-box;margin:0}
-body{font:16px/1.55 var(--sans);color:var(--ink);background:var(--sand)}
-.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
-header{padding:20px 0;display:flex;justify-content:space-between;align-items:center}
-.logo{font:600 1.15rem var(--serif);letter-spacing:.01em}
-.logo span{color:var(--coral)}
-.hero{padding:40px 0 28px}
-.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);font-weight:600}
-h1{font:500 clamp(2.2rem,6vw,3.8rem)/1.05 var(--serif);margin:10px 0 14px;max-width:14ch}
-.hero p{color:var(--ink-2);max-width:48ch}
-.layout{display:grid;gap:28px;grid-template-columns:1fr;padding-bottom:80px}
-@media(min-width:900px){.layout{grid-template-columns:1fr 340px;align-items:start}}
-.step{margin-bottom:36px}
-.step h2{font:500 1.4rem var(--serif);display:flex;gap:12px;align-items:center;margin-bottom:14px}
-.step h2 b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--sand);font:600 .85rem var(--sans)}
-.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
-.opt{position:relative}
-.opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
-.opt label{display:block;height:100%;padding:16px;background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);transition:.15s}
-.opt label strong{display:block;font:500 1.1rem var(--serif)}
-.opt label small{color:var(--ink-2);display:block;margin-top:2px}
-.opt label em{font-style:normal;font-weight:600;color:var(--sea);display:block;margin-top:10px}
-.opt input:hover+label{border-color:var(--sea)}
-.opt input:checked+label{border-color:var(--sea);box-shadow:0 0 0 3px color-mix(in srgb,var(--sea) 25%,transparent);background:color-mix(in srgb,var(--sea) 8%,var(--card))}
-.opt input:focus-visible+label{outline:3px solid var(--focus);outline-offset:2px}
-.slots .opt label{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:8px}
-.slots .opt label strong{font:600 1rem var(--sans)}
-.slots .opt input:disabled+label{opacity:.45;text-decoration:line-through;cursor:not-allowed}
-.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px}
-.days .opt{flex:0 0 74px}
-.days .opt label{text-align:center;padding:10px 4px}
-.days .opt label strong{font:600 1.2rem var(--sans)}
-.fields{display:grid;gap:14px;grid-template-columns:1fr}
-@media(min-width:560px){.fields{grid-template-columns:1fr 1fr}.fields .full{grid-column:1/-1}}
-.f label{display:block;font-size:.85rem;font-weight:600;margin-bottom:5px}
-.f input,.f textarea,.f select{width:100%;padding:12px 14px;font:inherit;color:inherit;background:var(--card);border:1.5px solid var(--line);border-radius:12px}
-.f input:focus,.f textarea:focus,.f select:focus{outline:3px solid var(--focus);outline-offset:1px;border-color:transparent}
-aside{position:sticky;top:16px;background:var(--ink);color:var(--sand);border-radius:20px;padding:24px}
-@media(prefers-color-scheme:dark){aside{background:var(--card);border:1px solid var(--line);color:var(--ink)}}
-aside h3{font:500 1.3rem var(--serif);margin-bottom:14px}
-aside dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:.92rem}
-aside dt{opacity:.7}aside dd{text-align:right;font-weight:500}
-.total{display:flex;justify-content:space-between;margin:18px 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.2);font:500 1.5rem var(--serif)}
-button{width:100%;padding:15px;border:0;border-radius:999px;background:var(--coral);color:#fff;font:600 1rem var(--sans);cursor:pointer;transition:.15s}
-button:hover{filter:brightness(1.08)}
-button:focus-visible{outline:3px solid #fff;outline-offset:3px}
-button:disabled{opacity:.5;cursor:not-allowed}
-.note{font-size:.8rem;opacity:.7;margin-top:12px;text-align:center}
-#done{display:none;text-align:center;padding:40px 8px}
-#done h3{font:500 1.6rem var(--serif)}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font:16px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px 96px}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+.logo{font:500 1.2rem var(--serif);letter-spacing:.01em}.logo i{color:var(--gold)}
+header a{font:500 .72rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+header a:hover{color:var(--cream)}
+.hero{padding:56px 0 36px}
+.kicker{font:400 .72rem var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+h1{font:400 clamp(2.4rem,7vw,4.4rem)/1.02 var(--serif);margin:14px 0 16px;max-width:13ch;letter-spacing:-.01em}
+h1 i{color:var(--gold)}
+.hero p{color:var(--cream-2);max-width:46ch}
+
+section{margin-top:44px}
+h2{font:400 1.7rem var(--serif);display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+h2 i{color:var(--gold);font-size:1.2rem}
+.lbl{display:block;font:400 .66rem var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:22px 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0}
+.chip span{display:block;padding:9px 16px;border:1px solid var(--line);border-radius:3px;font:500 .8rem var(--sans);color:var(--cream-2);transition:.15s}
+.chip:hover span{border-color:var(--muted);color:var(--cream)}
+.chip input:checked+span{background:var(--cream);color:var(--bg);border-color:var(--cream)}
+.chip input:focus-visible+span,.day input:focus-visible+span{outline:2px solid var(--gold);outline-offset:3px}
+
+.dayrail{position:relative}
+.days{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 4px 10px;scrollbar-width:none}
+.days::-webkit-scrollbar{display:none}
+.day{position:relative;flex:0 0 72px;scroll-snap-align:start}
+.day input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0}
+.day span{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 0 9px;border:1px solid var(--line);border-radius:3px;transition:.15s}
+.day small{font:400 .6rem var(--mono);letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.day b{font:400 1.7rem/1.1 var(--serif)}
+.day:hover span{border-color:var(--muted)}
+.day input:checked+span{background:var(--cream);border-color:var(--cream);color:var(--bg)}
+.day input:checked+span small{color:#5b6e69}
+.next{position:absolute;right:-6px;top:38px;width:36px;height:36px;border-radius:50%;border:1px solid var(--muted);background:var(--bg-2);color:var(--cream);cursor:pointer;font-size:1rem}
+.next:hover{background:var(--cream);color:var(--bg)}
+@media(max-width:640px){.next{display:none}}
+
+.date{font:400 .66rem var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.list{display:grid;gap:12px}
+.slot{display:grid;grid-template-columns:110px 1fr auto;gap:20px;align-items:center;background:var(--cream);color:var(--bg);padding:18px 22px;border-radius:3px;transition:transform .15s}
+.slot:hover{transform:translateX(3px)}
+.time{font:400 1.7rem/1 var(--serif)}
+.time small{display:block;font:400 .7rem var(--mono);letter-spacing:.14em;margin-top:6px;color:#5b6e69}
+.slot h3{font:500 1.15rem var(--serif)}
+.meta{font-size:.8rem;color:#44574f;margin-top:2px}
+.meta b{font-weight:600;color:var(--bg)}
+.meta a{color:inherit;text-underline-offset:3px}
+.low{color:var(--rust);font-weight:600}
+.book{background:var(--rust);color:var(--cream);border:0;border-radius:3px;padding:13px 22px;font:600 .78rem var(--sans);letter-spacing:.04em;cursor:pointer;transition:.15s}
+.book:hover{background:var(--rust-d)}
+.book:focus-visible{outline:2px solid var(--bg);outline-offset:3px}
+.empty{border:1px dashed var(--line);border-radius:3px;padding:36px;text-align:center;color:var(--muted)}
+@media(max-width:640px){.slot{grid-template-columns:1fr auto;gap:10px 16px}.time{grid-column:1/-1;display:flex;align-items:baseline;gap:10px}.time small{margin:0}.book{grid-column:1/-1;width:100%}}
+
+dialog{border:0;border-radius:4px;background:var(--cream);color:var(--bg);width:min(440px,calc(100% - 32px));padding:28px}
+dialog::backdrop{background:rgba(5,16,14,.7);backdrop-filter:blur(3px)}
+dialog h3{font:400 1.6rem var(--serif)}
+dialog .sub{font-size:.85rem;color:#44574f;margin:4px 0 18px}
+.f{margin-bottom:12px}
+.f label{display:block;font:500 .66rem var(--mono);letter-spacing:.16em;text-transform:uppercase;margin-bottom:5px;color:#44574f}
+.f input{width:100%;padding:11px 12px;border:1px solid #c9c1ad;border-radius:3px;background:#fff;font:inherit;color:var(--bg)}
+.f input:focus{outline:2px solid var(--rust);outline-offset:1px}
+.row{display:flex;gap:10px;margin-top:18px}
+.row .book{flex:1}
+.ghost{background:none;border:1px solid #c9c1ad;color:var(--bg);border-radius:3px;padding:13px 18px;font:500 .78rem var(--sans);cursor:pointer}
+.ok{text-align:center;padding:8px 0}
+.ok h3{margin-bottom:8px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header><div class="logo">Fuel <span>&amp;</span> Flow</div><nav aria-label="Primary"><a href="#" style="color:inherit;font-size:.9rem">Schedule</a></nav></header>
+  <header><div class="logo">Fuel <i>&amp;</i> Flow</div><a href="#">Local classes</a></header>
 
-  <section class="hero">
-    <p class="eyebrow">Local residents</p>
-    <h1>Move well. Book in a minute.</h1>
-    <p>Pick a class, choose a time, and you're in. No account needed.</p>
+  <div class="hero">
+    <p class="kicker">Nassau · Local rates</p>
+    <h1>Find your <i>flow.</i> Book your spot.</h1>
+    <p>Pilates, yoga, barre and more at two spots in Nassau. Pick a class, a day and a time.</p>
+  </div>
+
+  <section aria-labelledby="h1">
+    <h2 id="h1"><i>1</i>Class</h2>
+    <div class="chips" id="fClass" role="radiogroup" aria-label="Class"></div>
+    <span class="lbl">Where</span>
+    <div class="chips" id="fLoc" role="radiogroup" aria-label="Location"></div>
+    <span class="lbl">When</span>
+    <div class="chips" id="fWhen" role="radiogroup" aria-label="Time of day"></div>
   </section>
 
-  <form class="layout" id="f" novalidate>
-    <div>
-      <fieldset class="step" style="border:0;padding:0">
-        <legend style="all:unset"><h2><b>1</b>Choose your class</h2></legend>
-        <div class="grid" id="classes"></div>
-      </fieldset>
-
-      <fieldset class="step" style="border:0;padding:0">
-        <legend style="all:unset"><h2><b>2</b>Pick a day &amp; time</h2></legend>
-        <div class="days" id="days" role="radiogroup" aria-label="Day"></div>
-        <div class="grid slots" id="slots" role="radiogroup" aria-label="Time"></div>
-      </fieldset>
-
-      <div class="step">
-        <h2><b>3</b>Your details</h2>
-        <div class="fields">
-          <div class="f"><label for="n">Full name</label><input id="n" required autocomplete="name"></div>
-          <div class="f"><label for="e">Email</label><input id="e" type="email" required autocomplete="email"></div>
-          <div class="f"><label for="p">Phone / WhatsApp</label><input id="p" type="tel" autocomplete="tel"></div>
-          <div class="f"><label for="x">Experience</label><select id="x"><option>First time</option><option>Some experience</option><option>Regular</option></select></div>
-          <div class="f full"><label for="m">Injuries or notes <span style="font-weight:400">(optional)</span></label><textarea id="m" rows="3"></textarea></div>
-        </div>
-      </div>
+  <section aria-labelledby="h2">
+    <h2 id="h2"><i>2</i>Day</h2>
+    <div class="dayrail">
+      <div class="days" id="days" role="radiogroup" aria-label="Day"></div>
+      <button type="button" class="next" id="next" aria-label="Show later days">›</button>
     </div>
+  </section>
 
-    <aside aria-live="polite">
-      <div id="sum">
-        <h3>Your booking</h3>
-        <dl><dt>Class</dt><dd id="s1">—</dd><dt>When</dt><dd id="s2">—</dd><dt>Length</dt><dd id="s3">—</dd></dl>
-        <div class="total"><span>Total</span><span id="s4">$0</span></div>
-        <button id="go" disabled>Confirm booking</button>
-        <p class="note">Pay at the studio. Free cancellation up to 12 hours before.</p>
-      </div>
-      <div id="done"><h3>You're booked 🌴</h3><p style="margin-top:8px;opacity:.8" id="dmsg"></p></div>
-    </aside>
-  </form>
+  <section aria-labelledby="h3">
+    <h2 id="h3"><i>3</i>Time</h2>
+    <p class="date" id="dateLbl"></p>
+    <div class="list" id="list" aria-live="polite"></div>
+  </section>
 </div>
 
+<dialog id="dlg"><form method="dialog" id="bf" novalidate>
+  <div id="bform">
+    <h3 id="bt"></h3><p class="sub" id="bs"></p>
+    <div class="f"><label for="bn">Full name</label><input id="bn" required autocomplete="name"></div>
+    <div class="f"><label for="be">Email</label><input id="be" type="email" required autocomplete="email"></div>
+    <div class="f"><label for="bp">Phone / WhatsApp</label><input id="bp" type="tel" autocomplete="tel"></div>
+    <div class="row"><button type="button" class="ghost" id="cx">Cancel</button><button type="submit" class="book">Confirm booking</button></div>
+  </div>
+  <div class="ok" id="bok" hidden><h3>You're in.</h3><p class="sub" id="bm"></p><button type="button" class="book" id="cl">Done</button></div>
+</form></dialog>
+
 <script>
-// PLACEHOLDER DATA — replace with real classes, prices and schedule.
-const CLASSES=[
-  {id:'flow',name:'Sunrise Flow',desc:'Vinyasa yoga to start the day',min:60,price:25},
-  {id:'fuel',name:'Fuel HIIT',desc:'High-intensity intervals, all levels',min:45,price:25},
-  {id:'sculpt',name:'Sculpt & Tone',desc:'Low-impact strength and core',min:50,price:25},
-  {id:'restore',name:'Restore',desc:'Slow stretch and breathwork',min:60,price:20}
-];
-const TIMES=['6:00 AM','7:30 AM','9:00 AM','12:15 PM','5:30 PM','7:00 PM'];
+/* SAMPLE SCHEDULE — replace with the real timetable / booking API. */
+const CLASSES=['Mat Pilates','Yoga','Barre','Zumba','GluteLab','Qigong'];
+const LOCS={'Studio Café':'851 West Bay Street (Compass Point Studios), Nassau','ROOTZ':'ROOTZ, Nassau'};
+const PRICE={'Mat Pilates':35,'Yoga':35,'Barre':35,'Zumba':30,'GluteLab':35,'Qigong':30};
+const MINS={'Mat Pilates':'30–45','Yoga':'45–60','Barre':'45','Zumba':'45','GluteLab':'30–45','Qigong':'45'};
+const WEEK={1:[['7:00 AM','Yoga','ROOTZ'],['12:00 PM','Mat Pilates','Studio Café'],['5:30 PM','Zumba','Studio Café']],
+ 2:[['6:30 AM','Barre','Studio Café'],['12:00 PM','Mat Pilates','Studio Café'],['3:00 PM','GluteLab','Studio Café'],['6:00 PM','Qigong','ROOTZ']],
+ 3:[['7:30 AM','Yoga','ROOTZ'],['12:00 PM','GluteLab','Studio Café'],['6:00 PM','Barre','Studio Café']],
+ 4:[['6:30 AM','Mat Pilates','Studio Café'],['12:00 PM','Mat Pilates','Studio Café'],['3:00 PM','GluteLab','Studio Café'],['5:30 PM','Zumba','ROOTZ']],
+ 5:[['7:00 AM','Yoga','ROOTZ'],['12:00 PM','Barre','Studio Café'],['6:00 PM','Qigong','Studio Café']],
+ 6:[['9:00 AM','Zumba','Studio Café'],['10:30 AM','Mat Pilates','Studio Café']],
+ 0:[['9:00 AM','Yoga','ROOTZ'],['11:00 AM','Qigong','ROOTZ']]};
 const $=id=>document.getElementById(id);
-const st={cls:null,day:null,time:null};
-const opt=(name,val,html,dis)=>`<div class="opt"><input type="radio" name="${name}" id="${name}-${val}" value="${val}"${dis?' disabled':''}><label for="${name}-${val}">${html}</label></div>`;
+const st={cls:'All classes',loc:'All locations',when:'Any time',day:0};
+const part=t=>{const[h,rest]=t.split(':'),pm=t.includes('PM'),H=(+h%12)+(pm?12:0);return H<12?'Morning':H<17?'Afternoon':'Evening'};
+const chips=(el,name,vals)=>{$(el).innerHTML=vals.map((v,i)=>`<label class="chip"><input type="radio" name="${name}" value="${v}"${i?'':' checked'}><span>${v}</span></label>`).join('')};
+chips('fClass','cls',['All classes',...CLASSES]);
+chips('fLoc','loc',['All locations',...Object.keys(LOCS)]);
+chips('fWhen','when',['Any time','Morning','Afternoon','Evening']);
 
-$('classes').innerHTML=CLASSES.map(c=>opt('cls',c.id,`<strong>${c.name}</strong><small>${c.desc}</small><em>$${c.price} · ${c.min} min</em>`)).join('');
+const days=[...Array(12)].map((_,i)=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+i);return d});
+$('days').innerHTML=days.map((d,i)=>`<label class="day"><input type="radio" name="day" value="${i}"${i?'':' checked'}><span><small>${d.toLocaleDateString('en-US',{weekday:'short'})}</small><b>${d.getDate()}</b><small>${d.toLocaleDateString('en-US',{month:'short'})}</small></span></label>`).join('');
 
-const days=[...Array(7)].map((_,i)=>{const d=new Date();d.setDate(d.getDate()+i);return d});
-$('days').innerHTML=days.map((d,i)=>opt('day',i,`<small>${d.toLocaleDateString('en-US',{weekday:'short'})}</small><strong>${d.getDate()}</strong><small>${d.toLocaleDateString('en-US',{month:'short'})}</small>`)).join('');
-
-function drawSlots(){
-  $('slots').innerHTML=TIMES.map((t,i)=>{
-    const full=(st.day*3+i)%7===0; // fake availability
-    return opt('time',i,`<strong>${t}</strong><small>${full?'Full':(3+(i*2+st.day)%6)+' spots'}</small>`,full);
-  }).join('');
-}
-
+const spots=(i,t)=>2+((i*7+t.length*3+parseInt(t))%14);
 function render(){
-  const c=CLASSES.find(x=>x.id===st.cls);
-  $('s1').textContent=c?c.name:'—';
-  $('s2').textContent=st.day!=null&&st.time!=null?`${days[st.day].toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}, ${TIMES[st.time]}`:'—';
-  $('s3').textContent=c?c.min+' min':'—';
-  $('s4').textContent='$'+(c?c.price:0);
-  $('go').disabled=!(c&&st.day!=null&&st.time!=null&&$('n').value.trim()&&$('e').validity.valid&&$('e').value);
+  const d=days[st.day];
+  $('dateLbl').textContent=d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  const rows=(WEEK[d.getDay()]||[]).map((r,i)=>({t:r[0],c:r[1],l:r[2],n:spots(st.day+i,r[0])}))
+    .filter(r=>(st.cls==='All classes'||r.c===st.cls)&&(st.loc==='All locations'||r.l===st.loc)&&(st.when==='Any time'||part(r.t)===st.when));
+  $('list').innerHTML=rows.length?rows.map((r,i)=>{
+    const[h,m]=r.t.split(' ');
+    return `<article class="slot"><div class="time">${h}<small>${m}</small></div>
+    <div><h3>${r.c}</h3><p class="meta"><span class="${r.n<5?'low':''}">${r.n} spots open</span> · ${MINS[r.c]} minutes · $${PRICE[r.c]}</p>
+    <p class="meta"><b>${r.l}</b> · ${LOCS[r.l]} · <a href="https://maps.google.com/?q=${encodeURIComponent(LOCS[r.l])}" target="_blank" rel="noopener">Directions</a></p></div>
+    <button class="book" data-i="${i}">Book this class</button></article>`}).join('')
+    :`<div class="empty">No classes match. Try another day or clear a filter.</div>`;
+  render.rows=rows;
 }
-$('f').addEventListener('change',e=>{
-  const t=e.target;
-  if(t.name==='cls')st.cls=t.value;
-  if(t.name==='day'){st.day=+t.value;st.time=null;drawSlots()}
-  if(t.name==='time')st.time=+t.value;
-  render();
+document.addEventListener('change',e=>{
+  const t=e.target;if(t.name==='cls')st.cls=t.value;else if(t.name==='loc')st.loc=t.value;else if(t.name==='when')st.when=t.value;else if(t.name==='day')st.day=+t.value;else return;render();
 });
-$('f').addEventListener('input',render);
-$('f').addEventListener('submit',e=>{
+$('next').onclick=()=>$('days').scrollBy({left:360,behavior:'smooth'});
+let cur;
+$('list').addEventListener('click',e=>{
+  const b=e.target.closest('.book');if(!b)return;
+  cur=render.rows[+b.dataset.i];
+  $('bt').textContent=cur.c;
+  $('bs').textContent=`${days[st.day].toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'})} · ${cur.t} · ${cur.l} · $${PRICE[cur.c]}`;
+  $('bform').hidden=false;$('bok').hidden=true;$('dlg').showModal();
+});
+$('cx').onclick=$('cl').onclick=()=>$('dlg').close();
+$('bf').addEventListener('submit',e=>{
   e.preventDefault();
-  $('sum').style.display='none';$('done').style.display='block';
-  $('dmsg').textContent=`${$('s1').textContent} · ${$('s2').textContent}. A confirmation is on its way to ${$('e').value}.`;
+  if(!$('bn').value.trim()||!$('be').validity.valid||!$('be').value){($('bn').value.trim()?$('be'):$('bn')).focus();return}
+  $('bform').hidden=true;$('bok').hidden=false;
+  $('bm').textContent=`${cur.c}, ${cur.t}. A confirmation is on its way to ${$('be').value}.`;
 });
+render();
 </script>
 </body>
 </html>
